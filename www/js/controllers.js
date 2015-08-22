@@ -1,6 +1,19 @@
 angular.module('starter.controllers', ['starter.services', 'ngOpenFB'])
 
-.controller('DashCtrl', function($scope) {})
+.controller('DashCtrl', function($scope, ngFB) {
+        $scope.fbLogin = function () {
+            console.log("hey you!");
+            ngFB.login({scope: 'email,read_stream,publish_actions'}).then(
+                function (response) {
+                    if (response.status === 'connected') {
+                        console.log('Facebook login succeeded');
+                        $scope.closeLogin();
+                    } else {
+                        alert('Facebook login failed');
+                    }
+                });
+        };
+    })
 
 .controller('ChatsCtrl', function($scope, Chats) {
   // With the new view caching in Ionic, Controllers are only called
