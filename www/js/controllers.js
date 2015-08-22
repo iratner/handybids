@@ -1,4 +1,4 @@
-angular.module('starter.controllers', [])
+angular.module('starter.controllers', ['starter.services', 'ngOpenFB'])
 
 .controller('DashCtrl', function($scope) {})
 
